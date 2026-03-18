@@ -1,0 +1,21 @@
+services:
+  rezume:
+    image: rezume
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: >
+      sh -c "pip install debugpy &&
+             python -m debugpy --wait-for-client --listen 0.0.0.0:5678 manage.py runserver 0.0.0.0:8000 --nothreading --noreload"
+    ports:
+      - "8000:8000"
+      - "5678:5678"
+    volumes:
+      - .:/app
+      - sqlite_data:/app/db
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=*
+
+volumes:
+  sqlite_data:

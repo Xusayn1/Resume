@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Resume | Huseyin{% endblock %}
+
+{% block content %}
+<section class="resume-header card">
+  <div>
+    <p class="eyebrow">Resume</p>
+    <h1>Huseyin</h1>
+    <p class="lede">Early-career Django developer focused on building fast, readable backends and clean, responsive UIs.</p>
+  </div>
+  <div class="resume-contact">
+    <p>Email: <a href="mailto:husan.c7@icloud.com">husan.c7@icloud.com</a></p>
+    <p>Phone: +998 90 008 63 52</p>
+    <p>Location: Tashkent, Uzbekistan</p>
+    <p><a href="https://github.com/Xusayn1" class="link">GitHub</a> | <a href="https://www.linkedin.com/in/xusanboy-abdurahmonov-7601a3370/" class="link">LinkedIn</a></p>
+  </div>
+</section>
+
+<section class="resume-grid">
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Experience</h2>
+      <p class="muted">Projects, internships, and hands-on work</p>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <h3>Django Developer (Intern)</h3>
+          <p class="muted">Company Name | Location | <!-- add start-end dates --></p>
+        </div>
+        <span class="tag">Internship</span>
+      </div>
+      <ul class="bullets">
+        <li>Built and deployed RESTful endpoints in Django/DRF that served <!-- add metric --> daily requests.</li>
+        <li>Implemented authentication, pagination, and serializer validation to cut API errors by <!-- add metric -->%.</li>
+        <li>Collaborated with design to deliver a responsive UI using semantic HTML and modern CSS.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <h3>Open Source Contributor</h3>
+          <p class="muted">Project Name | Remote | <!-- add year --></p>
+        </div>
+        <span class="tag">Volunteer</span>
+      </div>
+      <ul class="bullets">
+        <li>Fixed bugs and refactored views/templates, improving lighthouse scores by <!-- add metric --> points.</li>
+        <li>Wrote tests and documentation to keep coverage above <!-- add metric -->%.</li>
+      </ul>
+    </div>
+    <!-- Add another role above this line if needed -->
+  </article>
+
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Projects</h2>
+      <p class="muted">Selected work that mirrors job requirements</p>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <h3>Portfolio & Resume Site</h3>
+          <p class="muted">Django | PostgreSQL | Tailored UI</p>
+        </div>
+        <span class="tag">Featured</span>
+      </div>
+      <ul class="bullets">
+        <li>Dynamic project cards driven by the Django admin with media uploads.</li>
+        <li>Reusable base template and design system for fast iteration.</li>
+        <li>Structured resume layout ready for ATS-friendly export to PDF.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <h3>Online tech store</h3>
+          <p class="muted">Django | PostgreSQL | Tailored UI</p>
+        </div>
+        <span class="tag">Project</span>
+      </div>
+      <ul class="bullets">
+        <li> Furniture.</li>
+        <li>Pizzaria.</li>
+        <li>Online Store.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Education</h2>
+      <p class="muted">Formal studies</p>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <div>
+          <h3>Tashkent State Technical University</h3>
+          <p class="muted">B.Sc. Computer Science (AI) | 2023-2027</p>
+        </div>
+        <span class="tag">Undergraduate</span>
+      </div>
+      <p class="muted">Relevant coursework: Data Structures, Algorithms, Databases, Machine Learning.</p>
+      <p class="muted"> Currently i am studying at Najot Ta'lim 'course of modern Jobs'at 7th month</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Skills</h2>
+      <p class="muted">Practical strengths</p>
+    </div>
+    <div class="chips">
+      <span class="chip">Python</span>
+      <span class="chip">Django / DRF</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">HTML & CSS</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">Git & CI</span>
+      <span class="chip">Docker</span>
+      <span class="chip">Unit Testing</span>
+    </div>
+    <p class="muted">Add cloud providers or other stacks here if required by the role.</p>
+  </article>
+
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Languages & Certifications</h2>
+      <p class="muted">Proof of communication and learning</p>
+    </div>
+    <ul class="bullets">
+      <li>Uzbek - Native</li>
+      <li>English - IELTS 6.0</li>
+      <li>Russian - Spoken</li>
+      <li>Turkish - B2</li>
+      <li>Arabic - A2</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <div class="section-header tight">
+      <h2>Awards & Sports Achievements</h2>
+      <p class="muted">Space reserved for athletic milestones</p>
+    </div>
+    <ul class="bullets">
+      <li>in 2019 champion of the national competition in football U-18</li>
+      <li>in 2021 champion of Uzb in Para-Taekwondo</li>
+      <li>in 2022 champion of the regional competition in Namangan. Para-Taekwondo</li>
+      <li>in 2022-2023 2nd place 14th Bek Mun Jon  World Championships </li>
+    </ul>
+  </article>
+</section>
+{% endblock %}

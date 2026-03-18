@@ -1,0 +1,17 @@
+services:
+  rezume:
+    image: rezume
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - sqlite_data:/app/db  # SQLite ma'lumotlarini saqlash uchun
+    environment:
+      - DEBUG=1
+      - ALLOWED_HOSTS=*
+
+volumes:
+  sqlite_data:

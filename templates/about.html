@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Huseyin{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="section-header">
+    <h1>About Me</h1>
+    <p class="muted">A quick snapshot of who I am and how I work.</p>
+  </div>
+
+  <div class="two-col">
+    <article class="card">
+      <h3>What I do</h3>
+      <ul class="bullets">
+        <li>Build Django backends with clear separation of concerns and maintainable templates.</li>
+        <li>Translate ideas into responsive frontends with semantic HTML and modern CSS.</li>
+        <li>Work in small iterations, ship often, and measure impact.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3>Currently learning</h3>
+      <p class="muted">Expanding skills to match the roles I'm targeting.</p>
+      <ul class="bullets">
+        <li>Deepening knowledge of Django Rest Framework and authentication patterns.</li>
+        <li>Exploring deployment with Docker and container-first workflows.</li>
+        <li>Studying a Cyber Security fundamentals.</li>
+        <li> Learning Data Analysis fundamentals  </li>
+      </ul>
+    </article>
+  </div>
+
+  <article class="card">
+    <h3>Highlights</h3>
+    <ul class="bullets">
+      <li>Comfortable collaborating via Git, code reviews, and lightweight agile ceremonies.</li>
+      <li>Write documentation and short Loom-style walkthroughs to keep teams aligned.</li>
+      <li><!-- add a notable achievement or award --></li>
+    </ul>
+  </article>
+</section>
+{% endblock %}
