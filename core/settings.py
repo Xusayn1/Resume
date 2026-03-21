@@ -10,12 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
-from logging import config
 import os
 from pathlib import Path
 
+from decouple import AutoConfig, Csv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Force decouple to read from the project root (.env) and avoid module/name clashes.
+config = AutoConfig(search_path=BASE_DIR)
+
+
+# Broad boolean parser so weird system-level DEBUG values (e.g. "release") don't crash decouple.
+def to_bool(value):
+    if isinstance(value, bool):
+        return value
+    if value is None:
+        return False
+    value = str(value).strip().lower()
+    if value in ("1", "true", "t", "yes", "y", "on"):
+        return True
+    if value in ("0", "false", "f", "no", "n", "off", ""):
+        return False
+    return False
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,11 +44,11 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Allow toggling via environment variable so Docker compose can control it
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=to_bool)
 
 # Accept hosts passed from environment (comma-separated) or allow all by default
 _hosts = os.getenv("ALLOWED_HOSTS", "*")
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=_hosts, cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=_hosts, cast=Csv())
 
 
 # Application definition
@@ -78,16 +96,28 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-         'ENGINE': config('DB_ENGINE'),
-         'NAME': config('DB_NAME'),
-         'USER': config('DB_USER'),
-         'PASSWORD': config('DB_PASSWORD'),
-         'HOST': config('DB_HOST'),
-         'PORT': config('DB_PORT'),
-     }
-}
+_db_engine = config('DB_ENGINE', default='django.db.backends.sqlite3')
+
+if _db_engine == 'django.db.backends.sqlite3':
+    # Default to SQLite so the container can run without external services
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    # Allow switching to Postgres (or another engine) via env vars
+    DATABASES = {
+        'default': {
+            'ENGINE': _db_engine,
+            'NAME': config('DB_NAME', default=''),
+            'USER': config('DB_USER', default=''),
+            'PASSWORD': config('DB_PASSWORD', default=''),
+            'HOST': config('DB_HOST', default='localhost'),
+            'PORT': config('DB_PORT', default='5432'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -136,9 +166,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Toggle secure cookie/redirect behavior via env vars so HTTP deployments don't drop the CSRF cookie.
-SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=False, cast=bool)
-SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=bool)
-CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=not DEBUG, cast=bool)
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=False, cast=to_bool)
+SESSION_COOKIE_SECURE = config('SESSION_COOKIE_SECURE', default=not DEBUG, cast=to_bool)
+CSRF_COOKIE_SECURE = config('CSRF_COOKIE_SECURE', default=not DEBUG, cast=to_bool)
 
 #HSTS
 SECURE_HSTS_SECONDS = 31536000
@@ -150,7 +180,9 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
-try:    
-    from .local_settings import *
-except ImportError: 
-    pass
+# Optional per-machine overrides (only loaded when explicitly enabled)
+if config('USE_LOCAL_SETTINGS', default=False, cast=to_bool):
+    try:
+        from .local_settings import *
+    except ImportError:
+        pass

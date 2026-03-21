@@ -4,14 +4,8 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+    env_file:
+      - .env
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app
-      - sqlite_data:/app/db  # SQLite ma'lumotlarini saqlash uchun
-    environment:
-      - DEBUG=1
-      - ALLOWED_HOSTS=*
-
-volumes:
-  sqlite_data:
+    restart: unless-stopped
