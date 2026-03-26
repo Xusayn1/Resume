@@ -20,7 +20,7 @@
       <a href="{% url 'resume' %}">Resume</a>
       <a href="{% url 'contact' %}">Contact</a>
     </nav>
-    <a class="nav-cta" href="/static/files/Huseyin_CV.pdf">Download CV</a>
+    <a class="nav-cta" href="{% static 'files/Huseyin_CV.pdf' %}" download>Download CV</a>
   </header>
 
   <main class="page">
@@ -29,7 +29,7 @@
   </main>
 
   <footer class="footer">
-    <p>© {% now "Y" %} Huseyin • Crafted with Django</p>
+    <p>&copy; {% now "Y" %} Huseyin &bull; Crafted with Django</p>
   </footer>
 </body>
 </html>

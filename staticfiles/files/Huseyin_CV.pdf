@@ -1,0 +1,105 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2365 >>
+stream
+BT
+/F1 11 Tf
+72 780 Td
+12 TL
+(Huseyin ? Resume) Tj
+T*
+(Email: husan.c7@icloud.com) Tj
+T*
+(Phone: +998 90 008 63 52) Tj
+T*
+(Location: Tashkent, Uzbekistan) Tj
+T*
+(GitHub: https://github.com/Xusayn1) Tj
+T*
+(LinkedIn: https://www.linkedin.com/in/xusanboy-abdurahmonov-7601a3370/) Tj
+T*
+() Tj
+T*
+
+T*
+(Projects) Tj
+T*
+(Portfolio & Resume Site ? Django | PostgreSQL | Tailored UI \(Featured\)) Tj
+T*
+(- Dynamic project cards driven by the Django admin with media uploads.) Tj
+T*
+(- Reusable base template and design system for fast iteration.) Tj
+T*
+(- Structured resume layout ready for ATS-friendly export to PDF.) Tj
+T*
+(Online tech store ? Django | PostgreSQL | Tailored UI \(Project\)) Tj
+T*
+(- Furniture.) Tj
+T*
+(- Pizzaria.) Tj
+T*
+(- Online Store.) Tj
+T*
+() Tj
+T*
+(Education) Tj
+T*
+(Tashkent State Technical University ? B.Sc. Computer Science \(AI\) | 2023-2027) Tj
+T*
+(Relevant coursework: Data Structures, Algorithms, Databases, Machine Learning.) Tj
+T*
+(Currently studying at Najot Ta'lim \(course of modern Jobs\) at 7th month.) Tj
+T*
+() Tj
+T*
+(Skills) Tj
+T*
+(Python; Django / DRF; PostgreSQL; HTML & CSS; JavaScript; Git & CI; Docker; Unit Testing) Tj
+T*
+(Add cloud providers or other stacks here if required by the role.) Tj
+T*
+() Tj
+T*
+(Languages & Certifications) Tj
+T*
+(Uzbek - Native; English - IELTS 6.0; Russian - Spoken; Turkish - B2; Arabic - A2) Tj
+T*
+() Tj
+T*
+(Awards & Sports Achievements) Tj
+T*
+(- 2019 champion of the national competition in football U-18) Tj
+T*
+(- 2021 champion of Uzbekistan in Para-Taekwondo) Tj
+T*
+(- 2022 champion of the regional competition in Namangan \(Para-Taekwondo\)) Tj
+T*
+(- 2022-2023 2nd place 14th Bek Mun Jon World Championships) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000002658 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2728
+%%EOF
