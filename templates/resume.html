@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Resume | Huseyin{% endblock %}
 
 {% block content %}
 <section class="resume-header card">
-  <div>
+  <div class="profile-block">
+    <div class="photo-frame" aria-label="Profile photo">
+      <img src="{% static 'files/headshot.jpg' %}" alt="Huseyin portrait" class="photo-img">
+    </div>
+    <p class="photo-hint muted">Updated with your latest headshot.</p>
+  </div>
+  <div class="resume-intro">
     <p class="eyebrow">Resume</p>
     <h1>Huseyin</h1>
     <p class="lede">Early-career Django developer focused on building fast, readable backends and clean, responsive UIs.</p>
